@@ -1,3 +1,0 @@
-= redmine_risk_management
-
-Description goes here
