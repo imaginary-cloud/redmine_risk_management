@@ -1,0 +1,11 @@
+risk:
+  id: 1
+  title: Risk title
+  description: Description for Risk
+  probability: 2
+  impact: 4
+  criticality: 4
+  rationale: Monitor
+  action: Action to take when monitoring
+  project_id: 1
+  user_id: 1

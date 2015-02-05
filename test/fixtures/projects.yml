@@ -1,0 +1,7 @@
+project:
+  id: 1
+  name: Project Risk Managmenet
+  description: Project with risk management plugin
+  homepage: http://project_risk_management.example.com/
+  identifier: project-risk-management
+  is_public: true
