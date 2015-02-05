@@ -28,7 +28,7 @@ class RiskTest < ActiveSupport::TestCase
     @risk.rationale = 'Mitigation'
     assert @risk.invalid?
 
-    @risk.rationale = 'Mitigate'
+    @risk.rationale = Risk::RATIONALES.sample
     assert @risk.valid?
   end
 
