@@ -1,0 +1,7 @@
+table.risks td.action,
+table.risks td.description,
+table.risks td.title {
+  text-align: left;
+}
+
+table.risks td a { color: #666; }
