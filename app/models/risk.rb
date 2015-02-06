@@ -1,6 +1,9 @@
 class Risk < ActiveRecord::Base
   unloadable
 
+  include Redmine::SafeAttributes
+
+  PER_PAGE   = 30
   RATIONALES = ['Monitor', 'Plan Mitigation', 'Mitigate']
 
   belongs_to :project
@@ -13,6 +16,7 @@ class Risk < ActiveRecord::Base
 
   before_save :set_criticality_rationale
 
+  safe_attributes 'title', 'description', 'probability', 'impact', 'action'
 
 private
 

@@ -9,4 +9,12 @@ module RisksHelper
     ]
   end
 
+  def risk_table_columns
+    %w{ ID Title Description Probability Impact Criticality Rationale Action }
+  end
+
+  def risk_linkable_columns
+    %w{ ID Title }
+  end
+
 end
