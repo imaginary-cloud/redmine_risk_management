@@ -1,0 +1,28 @@
+<%= error_messages_for 'risk' %>
+
+<div class="box tabular">
+
+  <p><%= f.text_field :title, size: 100, maxlength: 255, required: true %></p>
+
+  <p>
+    <%= f.label_for_field :description, required: true %>
+    <%= f.text_area :description, cols: 60, no_label: true,
+                    rows: (@risk.description.blank? ? 10 : [[10, @risk.description.length / 50].max, 100].min),
+                    class: 'wiki-edit' %>
+    <%= wikitoolbar_for 'risk_description' %>
+  </p>
+
+  <p><%= f.select :probability, options_with_lower_and_highier, required: true %></p>
+  <p><%= f.select :impact, options_with_lower_and_highier, required: true %></p>
+
+  <p>
+    <%= f.label_for_field :action, required: true %>
+    <%= f.text_area :action, cols: 60, no_label: true,
+                    rows: (@risk.action.blank? ? 10 : [[10, @risk.action.length / 50].max, 100].min),
+                    class: 'wiki-edit' %>
+    <%= wikitoolbar_for 'risk_action' %>
+  </p>
+
+</div>
+
+
