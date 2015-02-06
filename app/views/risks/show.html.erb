@@ -1,0 +1,42 @@
+<%= stylesheet_link_tag 'risks', plugin: 'redmine_risk_management' %>
+
+<div class='contextual'>
+  <%= link_to t(:button_edit), edit_project_risk_path(@project, @risk), class: 'icon icon-edit' %>
+  <%= link_to t(:button_delete), [@project, @risk], confirm: t(:text_are_you_sure), method: :delete, class: 'icon icon-del' %>
+</div>
+
+<h2><%= "#{t('label_risk')} ##{@risk.id}" %></h2>
+
+<div class='risk issue'>
+  <%= avatar(@risk.user, size: '50') %>
+
+  <h3><%= @risk.title %></h3>
+
+  <p>
+    <%= authoring @risk.created_at, @risk.user %>.
+    <% if @risk.created_at != @risk.updated_at %>
+      <%= l(:label_updated_time, time_tag(@risk.updated_at)).html_safe %>.
+    <% end %>
+  </p>
+
+  <table class='attributes'>
+    <% %w{ probability impact criticality rationale }.each do |attribute| %>
+      <tr>
+        <th><%= t("field_#{attribute}") %>:</th>
+        <td><%= @risk.send(attribute) %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <hr />
+  <div>
+    <p><strong><%= t(:field_description)%></strong></p>
+    <div class='wiki'><%= textilizable @risk, :description %></div>
+  </div>
+
+  <hr />
+  <div>
+    <p><strong><%= t(:field_action)%></strong></p>
+    <div class='wiki'><%= textilizable @risk, :action %></div>
+  </div>
+</div>

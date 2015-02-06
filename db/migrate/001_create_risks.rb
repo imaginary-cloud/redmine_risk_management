@@ -11,6 +11,7 @@ class CreateRisks < ActiveRecord::Migration
       t.text :action
       t.integer :project_id
       t.integer :user_id
+      t.timestamps
     end
 
     add_index :risks, :project_id
