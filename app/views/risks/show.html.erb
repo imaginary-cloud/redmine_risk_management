@@ -22,8 +22,9 @@
   <table class='attributes'>
     <% %w{ probability impact criticality rationale }.each do |attribute| %>
       <tr>
-        <th><%= t("field_#{attribute}") %>:</th>
-        <td><%= @risk.send(attribute) %></td>
+        <td colspan='2'>
+          <strong><%= t("field_#{attribute}") %>:</strong>
+          <%= @risk.send(attribute) %>
       </tr>
     <% end %>
   </table>

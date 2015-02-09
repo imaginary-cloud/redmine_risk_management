@@ -5,3 +5,8 @@ table.risks td.title {
 }
 
 table.risks td a { color: #666; }
+
+table.attributes strong {
+  display: inline-block;
+  width: 100px;
+}
