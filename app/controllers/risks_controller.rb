@@ -29,8 +29,8 @@ class RisksController < ApplicationController
     if @risk.save
       flash[:notice] = t(:notice_successful_create)
       respond_to do |format|
-        format.html { redirect_to project_risks_path(@project) }
-        format.api  { render action: :index, status: :created, location: project_risks_path(@project) }
+        format.html { redirect_to [@project, @risk] }
+        format.api  { render action: :index, status: :created, location: [@project, @risk] }
       end
     else
       respond_to do |format|
