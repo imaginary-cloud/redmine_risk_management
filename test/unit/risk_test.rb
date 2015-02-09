@@ -10,7 +10,7 @@ class RiskTest < ActiveSupport::TestCase
   test "should have the necessary presence validators" do
     risk = Risk.new
     assert risk.invalid?
-    attributes = [:title, :description, :probability, :impact, :criticality, :rationale, :action].sort
+    attributes = [:title, :description, :probability, :impact].sort
     assert_equal attributes, risk.errors.keys.sort
   end
 
@@ -40,8 +40,8 @@ class RiskTest < ActiveSupport::TestCase
   end
 
   test 'creation' do
-    risk = Risk.new(title: 'Risk title', description: 'Description for Risk', probability: 2, impact: 4, criticality: 4,
-                    rationale: 'Monitor', action: 'Action to take when monitoring')
+    risk = Risk.new(title: 'Risk title', description: 'Description for Risk',
+                    probability: 2, impact: 4, criticality: 4, rationale: 'Monitor')
     assert risk.save
   end
 

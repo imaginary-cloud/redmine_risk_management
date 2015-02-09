@@ -9,14 +9,14 @@ class Risk < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
-  validates_presence_of :title, :description, :action
+  validates_presence_of :title, :description
   validates_numericality_of :criticality, allow_nil: true
   validates_numericality_of :probability, :impact, greater_than: 0, less_than: 5
   validates_inclusion_of :rationale, in: RATIONALES, allow_nil: true
 
   before_save :set_criticality_rationale
 
-  safe_attributes 'title', 'description', 'probability', 'impact', 'action'
+  safe_attributes 'title', 'description', 'probability', 'impact'
 
 private
 
