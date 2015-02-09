@@ -3,6 +3,7 @@ class RisksController < ApplicationController
 
   before_filter :find_project_by_project_id
   before_filter :find_risk, except: [:index, :new, :create]
+  before_filter :check_project_permission
 
   def index
     @query = Risk
@@ -79,7 +80,13 @@ class RisksController < ApplicationController
 private
 
   def find_risk
-    @risk = Risk.find params[:id]
+    @risk = Risk.includes(:project).find(params[:id])
+  end
+
+  def check_project_permission
+    if @risk && @risk.project != @project
+      render_403
+    end
   end
 
 end
