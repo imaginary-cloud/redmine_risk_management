@@ -1,3 +1,5 @@
+require 'redmine_risk_management'
+
 Redmine::Plugin.register :redmine_risk_management do
   name 'Redmine Risk Management plugin'
   author 'Imaginary Cloud (http://imaginarycloud.com)'
