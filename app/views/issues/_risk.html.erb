@@ -1,0 +1,12 @@
+<% if @issue.risk %>
+
+  <%= stylesheet_link_tag 'risks', plugin: 'redmine_risk_management' %>
+
+  <div class='box risk'>
+    <p>
+      <%= link_to "#{t(:label_risk)} ##{@issue.risk.id}:", [@project, @issue.risk] %>
+      <%= @issue.risk.title %>
+    </p>
+  </div>
+
+<% end %>

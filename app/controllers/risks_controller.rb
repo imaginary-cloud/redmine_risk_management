@@ -41,6 +41,7 @@ class RisksController < ApplicationController
   end
 
   def show
+    @actions = @risk.actions
   end
 
   def edit

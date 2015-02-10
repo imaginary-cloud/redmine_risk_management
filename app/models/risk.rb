@@ -8,6 +8,7 @@ class Risk < ActiveRecord::Base
 
   belongs_to :project
   belongs_to :user
+  has_many :actions, class_name: 'Issue', dependent: :destroy
 
   validates_presence_of :title, :description
   validates_numericality_of :criticality, allow_nil: true

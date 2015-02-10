@@ -1,4 +1,9 @@
-table.risks td.action,
+.issue .box.risk {
+  margin-top: 10px;
+  padding: 10px;
+}
+.issue .box.risk p { margin: 0; }
+
 table.risks td.description,
 table.risks td.title {
   text-align: left;
