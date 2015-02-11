@@ -30,7 +30,7 @@ class RisksController < ApplicationController
       flash[:notice] = t(:notice_successful_create)
       respond_to do |format|
         format.html { redirect_to [@project, @risk] }
-        format.api  { render action: :index, status: :created, location: [@project, @risk] }
+        format.api  { head :ok }
       end
     else
       respond_to do |format|
