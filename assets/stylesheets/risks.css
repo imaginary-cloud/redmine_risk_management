@@ -1,8 +1,17 @@
+/* ISSUES PAGES
+=============================================================================*/
 .issue .box.risk {
   margin-top: 10px;
   padding: 10px;
 }
 .issue .box.risk p { margin: 0; }
+
+
+/* RISKS PAGES
+=============================================================================*/
+#content > .risk {
+  padding: 20px !important;
+}
 
 table.risks td.description,
 table.risks td.title {
