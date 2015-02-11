@@ -39,7 +39,7 @@ class RiskTest < ActiveSupport::TestCase
     assert_equal 8, @risk.criticality
   end
 
-  test 'creation' do
+  test 'should be created' do
     risk = Risk.new(title: 'Risk title', description: 'Description for Risk',
                     probability: 2, impact: 4, criticality: 4, rationale: 'Monitor')
     assert risk.save
