@@ -4,8 +4,8 @@ class RisksControllerTest < ActionController::TestCase
   fixtures :projects, :risks
 
   def setup
-    @project = projects(:project)
-    @risk    = risks(:risk)
+    @project = projects(:projects_001)
+    @risk    = risks(:risks_001)
   end
 
   test 'should get index' do
