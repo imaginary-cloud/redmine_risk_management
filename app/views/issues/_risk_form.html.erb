@@ -1,6 +1,7 @@
 <%= labelled_fields_for(@issue) do |f| %>
   <p>
+    <%= f.hidden_field :risk_id %>
     <%= f.label :risk_id, t('label_risk') %>
-    <%= f.text_field :risk_id, size: 10 %>
+    <%= text_field_tag :risk_id_disabled, @issue.risk_id, size: 10, disabled: :disabled %>
   </p>
 <% end %>
