@@ -16,6 +16,7 @@
           <% risk_table_columns.each do |column| %>
             <th><%= column %></th>
           <% end -%>
+          <th><%= t(:label_risks_actions) %></th>
         </tr>
       </thead>
 
@@ -31,6 +32,12 @@
                 <% end -%>
               </td>
             <% end -%>
+
+            <td>
+            <% risk.actions.each do |action| %>
+              <p><%= link_to "##{action.id}", action %></p>
+            <% end -%>
+            </td>
           </tr>
         <% end -%>
       </tbody>

@@ -13,10 +13,13 @@
   padding: 20px !important;
 }
 
-table.risks td.description,
-table.risks td.title {
+table.risks td.title,
+table.risks td.description {
   text-align: left;
 }
+
+table.risks td.title { width: 20%; }
+table.risks td.description { width: 40%; }
 
 table.risks td a { color: #666; }
 
