@@ -8,6 +8,11 @@ Redmine::Plugin.register :redmine_risk_management do
   url 'https://github.com/imaginary-cloud/redmine_risk_management'
   author_url 'mailto:info@imaginarycloud.com'
 
+  settings default: {
+    status: ['Identified', 'Monitored', 'Occurred', 'Dismissed'],
+    status_types: ['open', 'closed']
+  }, partial: 'settings/risks'
+
   project_module :risks do
     permission :view_risks, { risks: [:index, :show] }, { public: true }
     permission :add_risks, { risks: [:new, :create] }, { public: true }

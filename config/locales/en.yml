@@ -11,3 +11,5 @@ en:
   label_risks_new: New risk
   label_risks_edit: Edit risk
   label_risks_actions: Actions
+  label_risks_settings_status: Status
+  label_risks_settings_status_types: Status types
