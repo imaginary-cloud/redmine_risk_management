@@ -4,7 +4,7 @@ class RiskTest < ActiveSupport::TestCase
   fixtures :projects, :risks, :users
 
   setup do
-    @risk = risks(:risk)
+    @risk = risks(:risks_001)
   end
 
   test "should have the necessary presence validators" do
