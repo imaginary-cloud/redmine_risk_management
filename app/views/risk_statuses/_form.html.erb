@@ -1,0 +1,46 @@
+<%= error_messages_for 'risk_status' %>
+
+<div class='box tabular'>
+  <p>
+    <label for='risk_status_name'>
+      <%= t(:field_name) %>
+      <span class='required'> *</span>
+    </label>
+    <%= text_field 'risk_status', 'name' %>
+  </p>
+
+  <p>
+    <label for='tag_color'>
+      <%= t(:field_color) %>
+    </label>
+    <%= text_field 'risk_status', 'color_name', class: 'colorpicker' %>
+  </p>
+
+  <p>
+    <label for='risk_status_status_type'>
+      <%= t(:field_status_type) %>
+    </label>
+    <%= select_tag 'risk_status[status_type]', options_for_select(RiskStatus::STATUS_TYPE, @risk_status.status_type) %>
+  </p>
+
+  <p>
+    <label for='risk_status_is_default'>
+      <%= t(:field_is_default) %>
+    </label>
+    <%= check_box 'risk_status', 'is_default' %>
+  </p>
+</div>
+
+<% content_for :header_tags do %>
+  <%= javascript_include_tag 'jquery.colorPicker.min.js', plugin: 'redmine_risk_management'  %>
+  <%= stylesheet_link_tag 'colorPicker.css', plugin: 'redmine_risk_management' %>
+<% end %>
+
+
+<script>
+  $(function() {
+     // Use this method to add new colors to pallete
+     //$.fn.colorPicker.addColors(['000', '000', 'fff', 'fff']);
+     $('#risk_status_color_name').colorPicker();
+   });
+</script>

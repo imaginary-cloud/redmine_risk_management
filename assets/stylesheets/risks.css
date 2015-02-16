@@ -27,3 +27,12 @@ table.attributes strong {
   display: inline-block;
   width: 100px;
 }
+
+table.risk_statuses .color {
+  border: 1px solid #D7D7D7;
+  float: left;
+  display: block;
+  height: 15px;
+  margin: 1px 5px 0 0;
+  width: 15px;
+}

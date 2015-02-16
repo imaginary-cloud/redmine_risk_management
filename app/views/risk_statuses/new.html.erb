@@ -1,0 +1,10 @@
+<h2>
+  <%= link_to t(:label_plugins), admin_plugins_path %> &#187;
+  <%= link_to 'Redmine CRM plugin', plugin_settings_path(:redmine_risk_management) %> &#187;
+  <%= t(:label_new) %>
+</h2>
+
+<%= form_tag risk_statuses_path(@risk_status), html: { method: :post, class: 'tabular' } do %>
+  <%= render partial: 'form' %>
+  <%= submit_tag t(:button_create) %>
+<% end %>

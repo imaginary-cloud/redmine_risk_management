@@ -9,8 +9,7 @@ Redmine::Plugin.register :redmine_risk_management do
   author_url 'mailto:info@imaginarycloud.com'
 
   settings default: {
-    status: ['Identified', 'Monitored', 'Occurred', 'Dismissed'],
-    status_types: ['open', 'closed']
+    status: ['Identified', 'Monitored', 'Occurred', 'Dismissed']
   }, partial: 'settings/risks'
 
   project_module :risks do

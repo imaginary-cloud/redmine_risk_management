@@ -1,9 +1,12 @@
 en:
+  error_unable_delete_risk_status: 'Unable to delete risk status'
+
   field_criticality: Criticality
   field_description: Description
   field_impact: Impact
   field_probability: Probability
   field_rationale: Rationale
+  field_status_type: Status type
   field_title: Title
 
   label_risk: Risk
@@ -11,5 +14,6 @@ en:
   label_risks_new: New risk
   label_risks_edit: Edit risk
   label_risks_actions: Actions
-  label_risks_settings_status: Status
-  label_risks_settings_status_types: Status types
+  label_risks_status: Status
+  label_risks_status_plural: Statuses
+  label_risks_status_type: Status types

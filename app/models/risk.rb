@@ -7,6 +7,7 @@ class Risk < ActiveRecord::Base
   RATIONALES = ['Monitor', 'Plan Mitigation', 'Mitigate']
 
   belongs_to :project
+  belongs_to :risk_status
   belongs_to :user
   has_many :actions, class_name: 'Issue', dependent: :destroy
 

@@ -1,0 +1,40 @@
+<%= stylesheet_link_tag 'risks', plugin: 'redmine_risk_management' %>
+
+<div class='contextual'>
+<%= link_to t(:label_new), new_risk_status_path, :class => 'icon icon-add' %>
+</div>
+
+<h3><%= t(:label_risks_status_plural)%></h3>
+
+<table class='list risk_statuses'>
+  <thead>
+    <tr>
+      <th><%= t(:field_status) %></th>
+      <th><%= t(:field_is_default) %></th>
+      <th><%= t(:field_status_type) %></th>
+      <th><%= t(:button_sort) %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% for risk_status in RiskStatus.ordered %>
+    <tr class="<%= cycle("odd", "even") %>">
+      <td class='name'>
+        <span class='color' style="background-color: <%= risk_status.color_name %>;"></span>
+        <%= link_to risk_status.name, risk_status %>
+      </td>
+      <td align='center' style='width:15%;'><%= checked_image risk_status.is_default? %></td>
+      <td align='center' style='width:15%;'><%= risk_status.status_type %></td>
+      <td align="center" style="width:15%;">
+        <%= reorder_links 'risk_status',
+                          { controller: :risk_statuses, action: :update, id: risk_status },
+                          :put %>
+      </td>
+      <td class='buttons'>
+        <%= delete_link risk_status_path(risk_status) %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
