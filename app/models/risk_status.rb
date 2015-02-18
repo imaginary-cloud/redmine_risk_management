@@ -7,7 +7,7 @@ class RiskStatus < ActiveRecord::Base
 
   acts_as_list :scope => 'status_type = \'#{status_type}\''
 
-  has_many :risks, dependent: :destroy
+  has_many :risks
 
   validates :name, presence: true, uniqueness: true
 
