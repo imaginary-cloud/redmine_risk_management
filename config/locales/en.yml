@@ -6,6 +6,7 @@ en:
   field_impact: Impact
   field_probability: Probability
   field_rationale: Rationale
+  field_risk_status: Risk status
   field_status_type: Status type
   field_title: Title
 

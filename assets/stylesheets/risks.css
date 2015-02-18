@@ -10,7 +10,25 @@
 /* RISKS PAGES
 =============================================================================*/
 #content > .risk {
+  border-left: 4px solid !important;
   padding: 20px !important;
+}
+
+table.list.risks {
+  border-collapse: collapse;
+}
+
+table.list.risks th:first-of-type,
+table.list.risks td:first-of-type {
+  border-left: 4px solid !important;
+  overflow: hidden;
+  padding: 0;
+  width: 4px;
+}
+
+table.list.risks th:first-of-type {
+  background: #FFF;
+  border-color: #FFF !important;
 }
 
 table.risks td.title,
@@ -21,7 +39,10 @@ table.risks td.description {
 table.risks td.title { width: 20%; }
 table.risks td.description { width: 40%; }
 
-table.risks td a { color: #666; }
+table.risks td a {
+  color: #666;
+  display: block;
+}
 
 table.attributes strong {
   display: inline-block;
@@ -35,4 +56,29 @@ table.risk_statuses .color {
   height: 15px;
   margin: 1px 5px 0 0;
   width: 15px;
+}
+
+.risk .risk-status {
+  line-height: 1.5em;
+  margin: 0 0 20px 0;
+  padding: 10px;
+}
+.risk .risk-status p {
+  color: #FFF;
+  margin: 0;
+}
+
+
+/* TAGS ---------------------------------------------------------------------*/
+.tag-label-color {
+  border-radius: 15px;
+  float: left;
+  margin: 7px 0;
+  padding: 7px 8px;
+}
+
+.tag-label-color > span {
+  color: #FFF;
+  float: left;
+  font: 10px Verdana, sans-serif;
 }

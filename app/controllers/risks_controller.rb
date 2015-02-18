@@ -6,7 +6,7 @@ class RisksController < ApplicationController
   before_filter :check_project_permission
 
   def index
-    @query = Risk
+    @query = Risk.includes(:actions, :risk_status)
 
     @limit = Risk::PER_PAGE
     @risks_count = @query.count
@@ -18,6 +18,7 @@ class RisksController < ApplicationController
 
   def new
     @risk = Risk.new
+    @risk_statuses = RiskStatus.ordered
   end
 
   def create
@@ -37,6 +38,7 @@ class RisksController < ApplicationController
         format.html { render action: :new }
         format.api  { render_validation_errors(@risk) }
       end
+      @risk_statuses = RiskStatus.ordered
     end
   end
 
@@ -45,6 +47,7 @@ class RisksController < ApplicationController
   end
 
   def edit
+    @risk_statuses = RiskStatus.ordered
   end
 
   def update
@@ -61,6 +64,7 @@ class RisksController < ApplicationController
         format.html { render action: :edit }
         format.api  { render_validation_errors(@risk) }
       end
+      @risk_statuses = RiskStatus.ordered
     end
   end
 

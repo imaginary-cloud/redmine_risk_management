@@ -7,7 +7,15 @@
 
 <h2><%= "#{t('label_risk')} ##{@risk.id}" %></h2>
 
-<div class='risk issue'>
+<div class='risk issue' style='border-left-color: <%= @risk.risk_status.color_name %> !important;"'>
+
+  <div class='risk-status' style="background-color: <%= @risk.risk_status.color_name %>;">
+    <p>
+      <strong>Status:</strong>
+      <%= @risk.risk_status.name %>
+    </p>
+  </div>
+
   <%= avatar(@risk.user, size: '50') %>
 
   <h3><%= @risk.title %></h3>

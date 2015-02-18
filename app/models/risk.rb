@@ -18,7 +18,7 @@ class Risk < ActiveRecord::Base
 
   before_save :set_criticality_rationale
 
-  safe_attributes 'title', 'description', 'probability', 'impact'
+  safe_attributes 'title', 'description', 'probability', 'impact', 'risk_status_id'
 
 private
 

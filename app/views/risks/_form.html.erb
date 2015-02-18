@@ -14,6 +14,9 @@
 
   <p><%= f.select :probability, options_with_lower_and_highier, required: true %></p>
   <p><%= f.select :impact, options_with_lower_and_highier, required: true %></p>
+  <p><%= f.select :risk_status_id,
+                  options_from_collection_for_select(@risk_statuses, :id, :name, @risk.risk_status_id || @risk_statuses.default.id),
+                  required: true %></p>
 
 </div>
 

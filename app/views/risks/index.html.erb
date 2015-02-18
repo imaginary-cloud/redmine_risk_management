@@ -13,6 +13,7 @@
     <table class='list risks'>
       <thead>
         <tr>
+          <th></th>
           <% risk_table_columns.each do |column| %>
             <th><%= column %></th>
           <% end -%>
@@ -23,12 +24,23 @@
       <tbody>
         <% @risks.each do |risk| %>
           <tr class=<%= cycle('odd', 'even') %>>
+            <td style='background-color: <%= risk.risk_status.color_name %> !important; border-color: <%= risk.risk_status.color_name %> !important;'></td>
             <% risk_table_columns.each do |column| %>
               <td class=<%= column.downcase %>>
                 <% if risk_linkable_columns.include?(column) %>
                   <%= link_to risk.send(column.downcase), [@project, risk] %>
+
+                  <% if column.downcase == 'title' %>
+                    <div class='tag-label-color' style='background-color: <%= risk.risk_status.color_name %>'>
+                      <span><%= risk.risk_status.name %></span>
+                    </div>
+                  <% end -%>
                 <% else %>
-                  <%= risk.send(column.downcase) %>
+                  <% if column.downcase == 'description' %>
+                    <%= truncate risk.send(column.downcase), length: 200, omission: ' (...)' %>
+                  <% else %>
+                    <%= risk.send(column.downcase) %>
+                  <% end -%>
                 <% end -%>
               </td>
             <% end -%>
