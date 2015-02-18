@@ -22,7 +22,7 @@
     <tr class="<%= cycle("odd", "even") %>">
       <td class='name'>
         <span class='color' style="background-color: <%= risk_status.color_name %>;"></span>
-        <%= link_to risk_status.name, risk_status %>
+        <%= link_to risk_status.name, edit_risk_status_path(risk_status) %>
       </td>
       <td align='center' style='width:15%;'><%= checked_image risk_status.is_default? %></td>
       <td align='center' style='width:15%;'><%= risk_status.status_type %></td>

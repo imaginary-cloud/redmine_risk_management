@@ -4,7 +4,7 @@
   <%= @risk_status.name %>
 </h2>
 
-<%= form_tag risk_statuses_path(@risk_status), html: { method: :put, class: 'tabular' } do %>
+<%= labelled_form_for @risk_status, class: 'tabular' do |f|  %>
   <%= render partial: 'form' %>
   <%= submit_tag t(:button_save) %>
 <% end %>
