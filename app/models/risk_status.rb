@@ -9,7 +9,7 @@ class RiskStatus < ActiveRecord::Base
 
   has_many :risks, dependent: :destroy
 
-  validates_presence_of :name
+  validates :name, presence: true, uniqueness: true
 
   safe_attributes 'name', 'color', 'status_type', 'is_default', 'position'
 
