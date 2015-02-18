@@ -5,4 +5,3 @@ risk_statuses_001:
   color: '#000000'
   status_type: 'open'
   is_default: false
-  is_closed: false
