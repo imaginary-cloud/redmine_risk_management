@@ -21,7 +21,6 @@ table.list.risks {
 table.list.risks th:first-of-type,
 table.list.risks td:first-of-type {
   border-left: 4px solid !important;
-  overflow: hidden;
   padding: 0;
   width: 4px;
 }
