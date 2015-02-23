@@ -14,7 +14,7 @@ en:
   label_risk_plural: Risks
   label_risks_new: New risk
   label_risks_edit: Edit risk
-  label_risks_actions: Actions
+  label_risks_issues: Issues
   label_risks_status: Status
   label_risks_status_plural: Statuses
   label_risks_status_type: Status types

@@ -29,7 +29,7 @@ class IssuesControllerTest < ActionController::TestCase
   def setup
     @issue = issues(:issues_001)
     @risk  = risks(:risks_001)
-    @risk.actions << @issue
+    @risk.issues << @issue
   end
 
   test 'should display related risk' do
