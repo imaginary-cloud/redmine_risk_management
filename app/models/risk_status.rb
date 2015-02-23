@@ -34,7 +34,7 @@ class RiskStatus < ActiveRecord::Base
 private
 
   def check_integrity
-    raise "Can't delete risk status" if Risk.where(status_id: self.id).any?
+    raise "Can't delete risk status" if Risk.where(risk_status_id: self.id).any?
   end
 
   def update_default
