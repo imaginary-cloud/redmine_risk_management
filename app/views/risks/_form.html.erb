@@ -11,7 +11,6 @@
                     class: 'wiki-edit' %>
     <%= wikitoolbar_for 'risk_description' %>
   </p>
-
   <p><%= f.select :probability, options_with_lower_and_highier, required: true %></p>
   <p><%= f.select :impact, options_with_lower_and_highier, required: true %></p>
   <p><%= f.select :risk_status_id,
@@ -19,5 +18,3 @@
                   required: true %></p>
 
 </div>
-
-

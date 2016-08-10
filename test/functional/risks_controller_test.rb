@@ -1,21 +1,25 @@
 require File.expand_path('../../test_helper', __FILE__)
 
 class RisksControllerTest < ActionController::TestCase
-  fixtures :projects, :risks
+  fixtures :projects, :risks, :risk_statuses
 
   def setup
     @project = projects(:projects_001)
+    @risk_status = risk_statuses(:risk_statuses_001)
     @risk    = risks(:risks_001)
   end
 
   test 'should get index' do
+    @risk.risk_status_id = @risk_status.id
+    @risk.save
+
     @project.risks << @risk
 
     get :index, { project_id: @project }
     assert_template :index
     assert_not_nil assigns(:risks)
     assert_select 'table.risks' do
-      assert_select 'td.title', @risk.title
+      assert_select 'td.title', /#{@risk.title}\s+#{@risk_status.name}/
     end
   end
 
@@ -34,6 +38,9 @@ class RisksControllerTest < ActionController::TestCase
   end
 
   test 'should get show' do
+    @risk.risk_status_id = @risk_status.id
+    @risk.save
+
     get :show, { project_id: @project, id: @risk }
     assert_template :show
     assert_not_nil assigns(:risk)
