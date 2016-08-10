@@ -13,7 +13,7 @@ class RiskStatus < ActiveRecord::Base
 
   safe_attributes 'name', 'color', 'status_type', 'is_default', 'position'
 
-  scope :ordered, order('status_type DESC, position')
+  scope :ordered, -> { order('status_type DESC, position') }
 
   before_destroy :check_integrity
   after_save :update_default
@@ -38,6 +38,6 @@ private
   end
 
   def update_default
-    RiskStatus.update_all({ is_default: false }, ['id <> ?', id]) if self.is_default?
+    RiskStatus.where('id <> ?', id).update_all({ is_default: false }) if self.is_default?
   end
 end
