@@ -22,11 +22,10 @@ class RisksController < ApplicationController
   end
 
   def create
-    @risk = Risk.new
-    @risk.safe_attributes = params[:risk]
+    @risk = Risk.new(permitted_params)
+    @risk.safe_attributes = permitted_params
     @risk.project = @project
     @risk.user    = User.current
-
     if @risk.save
       flash[:notice] = t(:notice_successful_create)
       respond_to do |format|
@@ -34,11 +33,11 @@ class RisksController < ApplicationController
         format.api  { head :ok }
       end
     else
+      @risk_statuses = RiskStatus.ordered
       respond_to do |format|
         format.html { render action: :new }
         format.api  { render_validation_errors(@risk) }
       end
-      @risk_statuses = RiskStatus.ordered
     end
   end
 
@@ -51,20 +50,20 @@ class RisksController < ApplicationController
   end
 
   def update
-    @risk.safe_attributes = params[:risk]
+    @risk.safe_attributes = permitted_params
 
     if @risk.save
       flash[:notice] = t(:notice_successful_update)
       respond_to do |format|
-        format.html { redirect_to [@project, @risk]  }
+        format.html { redirect_to [@project, @risk] }
         format.api  { head :ok }
       end
     else
+      @risk_statuses = RiskStatus.ordered
       respond_to do |format|
-        format.html { render action: :edit }
+        format.html { render :edit }
         format.api  { render_validation_errors(@risk) }
       end
-      @risk_statuses = RiskStatus.ordered
     end
   end
 
@@ -81,17 +80,23 @@ class RisksController < ApplicationController
     end
   end
 
+  private
 
-private
+  def permitted_params
+    params.require(:risk).permit(:title,
+                                 :description,
+                                 :controls,
+                                 :probability,
+                                 :impact,
+                                 :risk_status_id)
+  end
 
   def find_risk
     @risk = Risk.includes(:project).find(params[:id])
   end
 
   def check_project_permission
-    if @risk && @risk.project != @project
-      render_403
-    end
+    return unless @risk && @risk.project != @project
+    render_403
   end
-
 end

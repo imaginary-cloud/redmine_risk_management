@@ -4,4 +4,4 @@ risk_statuses_001:
   name: Risk status title
   color: '#000000'
   status_type: 'open'
-  is_default: false
+  is_default: true
