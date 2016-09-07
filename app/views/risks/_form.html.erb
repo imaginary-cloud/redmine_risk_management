@@ -11,6 +11,13 @@
                     class: 'wiki-edit' %>
     <%= wikitoolbar_for 'risk_description' %>
   </p>
+  <p>
+    <%= f.label_for_field :controls, required: false %>
+    <%= f.text_area :controls, cols: 60, no_label: true,
+                    rows: (@risk.controls.blank? ? 10 : [[10, @risk.controls.length / 50].max, 100].min),
+                    class: 'wiki-edit' %>
+    <%= wikitoolbar_for 'risk_controls' %>
+  </p>
   <p><%= f.select :probability, options_with_lower_and_highier, required: true %></p>
   <p><%= f.select :impact, options_with_lower_and_highier, required: true %></p>
   <p><%= f.select :risk_status_id,

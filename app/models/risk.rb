@@ -1,10 +1,12 @@
+# The Risk class is responsible for managing risk and risk issues associated
+# with a project
 class Risk < ActiveRecord::Base
   unloadable
 
   include Redmine::SafeAttributes
 
   PER_PAGE   = 30
-  RATIONALES = ['Monitor', 'Plan Mitigation', 'Mitigate']
+  RATIONALES = ['Monitor', 'Plan Mitigation', 'Mitigate'].freeze
 
   belongs_to :project
   belongs_to :risk_status
@@ -18,18 +20,22 @@ class Risk < ActiveRecord::Base
 
   before_save :set_criticality_rationale
 
-  safe_attributes 'title', 'description', 'probability', 'impact', 'risk_status_id'
+  safe_attributes 'title',
+                  'description',
+                  'controls',
+                  'probability',
+                  'impact',
+                  'risk_status_id'
 
-private
+  private
 
   def set_criticality_rationale
-    self.criticality = self.probability * self.impact
+    self.criticality = probability * impact
     self.rationale =
-      case self.criticality
+      case criticality
       when 1..4 then RATIONALES.first
       when 5..8 then RATIONALES.second
       else RATIONALES.third
       end
   end
-
 end

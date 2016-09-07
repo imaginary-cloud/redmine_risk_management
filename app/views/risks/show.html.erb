@@ -45,6 +45,12 @@
   </div>
 
   <hr />
+  <div>
+    <p><strong><%= t(:field_controls)%></strong></p>
+    <div class='wiki'><%= textilizable @risk, :controls %></div>
+  </div>
+
+  <hr />
   <div id='risk_issues'>
     <div class='contextual'>
       <%= link_to t(:button_add), new_project_issue_path(@project, 'issue[risk_id]' => @risk) %>

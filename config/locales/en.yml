@@ -3,6 +3,7 @@ en:
 
   field_criticality: Criticality
   field_description: Description
+  field_controls: Controls
   field_impact: Impact
   field_probability: Probability
   field_rationale: Rationale

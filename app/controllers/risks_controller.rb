@@ -55,13 +55,13 @@ class RisksController < ApplicationController
     if @risk.save
       flash[:notice] = t(:notice_successful_update)
       respond_to do |format|
-        format.html { redirect_to [@project, @risk]  }
+        format.html { redirect_to [@project, @risk] }
         format.api  { head :ok }
       end
     else
       @risk_statuses = RiskStatus.ordered
       respond_to do |format|
-        format.html { render action: :edit }
+        format.html { render :edit }
         format.api  { render_validation_errors(@risk) }
       end
     end
@@ -80,11 +80,15 @@ class RisksController < ApplicationController
     end
   end
 
-
-private
+  private
 
   def permitted_params
-    params.require(:risk).permit(:title, :description, :probability, :impact, :risk_status_id)
+    params.require(:risk).permit(:title,
+                                 :description,
+                                 :controls,
+                                 :probability,
+                                 :impact,
+                                 :risk_status_id)
   end
 
   def find_risk
@@ -92,9 +96,7 @@ private
   end
 
   def check_project_permission
-    if @risk && @risk.project != @project
-      render_403
-    end
+    return unless @risk && @risk.project != @project
+    render_403
   end
-
 end
