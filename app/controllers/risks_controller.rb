@@ -22,8 +22,9 @@ class RisksController < ApplicationController
   end
 
   def create
-    @risk = Risk.new
-    @risk.safe_attributes = params[:risk]
+    @risk = Risk.new(risk_params)
+    # byebug
+    # @risk.safe_attributes = params[:risk]
     @risk.project = @project
     @risk.user    = User.current
 
@@ -51,9 +52,7 @@ class RisksController < ApplicationController
   end
 
   def update
-    @risk.safe_attributes = params[:risk]
-
-    if @risk.save
+    if @risk.update_attributes(risk_params)
       flash[:notice] = t(:notice_successful_update)
       respond_to do |format|
         format.html { redirect_to [@project, @risk]  }
@@ -92,6 +91,10 @@ private
     if @risk && @risk.project != @project
       render_403
     end
+  end
+
+  def risk_params
+    params.require(:risk).permit(:title, :description, :probability, :impact, :risk_status_id)
   end
 
 end
