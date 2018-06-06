@@ -16,12 +16,12 @@ Risk management is a plugin for [Redmine](http://www.redmine.org/) (a project ma
 
 First you can create custom status going to the plugin administration page.
 
-![redmine_rm_risks screenshot](https://raw.githubusercontent.com/imaginary-cloud/redmine_risk_management/redmine-3.4.5-fixes/Screenshot_risks.png)
+![redmine_rm_risks screenshot](https://raw.githubusercontent.com/imaginary-cloud/redmine_risk_management/master/Screenshot_risks.png)
 
 To create a risk for a project you need to click in Risks tab under the project detail page. 
 
 
-![redmine_rm_status screenshot](https://raw.githubusercontent.com/imaginary-cloud/redmine_risk_management/redmine-3.4.5-fixes/Screenshot_risks.png)
+![redmine_rm_status screenshot](https://raw.githubusercontent.com/imaginary-cloud/redmine_risk_management/master/Screenshot_status.png)
 
 ## Keywords
 
