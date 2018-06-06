@@ -15,6 +15,8 @@ class RiskStatus < ActiveRecord::Base
 
   scope :ordered, -> { order('status_type DESC, position') }
 
+  attr_accessible :name, :color_name, :status_type, :is_default, :position
+
   before_destroy :check_integrity
   after_save :update_default
 
