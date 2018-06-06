@@ -17,6 +17,8 @@ class Risk < ActiveRecord::Base
   validates_inclusion_of :rationale, in: RATIONALES, allow_nil: true
 
   before_save :set_criticality_rationale
+  
+  attr_accessible :title, :description, :probability, :impact, :risk_status_id
 
   safe_attributes 'title', 'description', 'probability', 'impact', 'risk_status_id'
 
