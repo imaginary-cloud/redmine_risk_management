@@ -1,3 +1,3 @@
-source :rubygems
+# source 'https://rubygems.org'
 
-gem 'strong_parameters', '~> 0.2.3'
+#   gem 'strong_parameters'
