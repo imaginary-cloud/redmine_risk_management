@@ -2,17 +2,15 @@
 
 V0.0.4 (5-Jun-2018)
 
-
-## About
-
 Risk management is a plugin for [Redmine](http://www.redmine.org/) (a project management web application), allowing to manage the risks for a given project.
 
 ## Installation
 
 1. Download tarball
-2. cd {redmine_root}/plugins/; mkdir redmine_risk_management
-3. Extract files to {redmine_root}/plugins/redmine_risk_management/
-4. rake redmine:plugins:migrate NAME=redmine_risk_management RAILS_ENV={Environment}
+2. `cd {redmine_root}/plugins/`
+3. `mkdir redmine_risk_management`
+4. Extract files to {redmine_root}/plugins/redmine_risk_management/
+5. `rake redmine:plugins:migrate NAME=redmine_risk_management RAILS_ENV={Environment}`
 
 ## How to use
 
